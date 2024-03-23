@@ -1,0 +1,22 @@
+{
+    "name": "nodiskindrivea/the-gelatinous-blob",
+    "type": "library",
+    "license": "LGPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Nodiskindrivea\\Gelatinous\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patrick Durold",
+            "email": "patrick@durold.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "~8.1",
+        "roave/better-reflection": "^6.25",
+        "psr/log": "^3.0"
+    }
+}
