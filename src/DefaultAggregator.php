@@ -21,12 +21,13 @@ declare(strict_types=1);
 
 namespace Nodiskindrivea\Gelatinous;
 
+use Psr\Log\LoggerInterface;
 use Roave\BetterReflection\BetterReflection;
 
 class DefaultAggregator extends Aggregator
 {
-    public function __construct()
+    public function __construct(?LoggerInterface $logger = null)
     {
-        parent::__construct(new BetterReflection());
+        parent::__construct(new BetterReflection(), $logger);
     }
 }

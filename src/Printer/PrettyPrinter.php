@@ -19,7 +19,7 @@
 
 declare(strict_types=1);
 
-namespace Nodiskindrivea\Gelatinous;
+namespace Nodiskindrivea\Gelatinous\Printer;
 
 use PhpParser\PrettyPrinter\Standard;
 
