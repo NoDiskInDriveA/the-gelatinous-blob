@@ -24,6 +24,7 @@ namespace Nodiskindrivea\Gelatinous;
 use Exception;
 use Nodiskindrivea\Gelatinous\Processor\ClassProcessor;
 use Nodiskindrivea\Gelatinous\Processor\CompositeProcessor;
+use Nodiskindrivea\Gelatinous\Processor\ConstantProcessor;
 use Nodiskindrivea\Gelatinous\Processor\FunctionProcessor;
 use Nodiskindrivea\Gelatinous\Value\ResolverQueue;
 use Psr\Log\LoggerInterface;
@@ -46,7 +47,8 @@ class Aggregator
         $entitiesProcessor = new CompositeProcessor(
             $this->logger,
             new ClassProcessor($this->betterReflection, $this->logger),
-            new FunctionProcessor($entrypointFqn, $this->betterReflection, $this->logger)
+            new FunctionProcessor($entrypointFqn, $this->betterReflection, $this->logger),
+            new ConstantProcessor($this->betterReflection, $this->logger)
         );
 
         $q = new ResolverQueue();

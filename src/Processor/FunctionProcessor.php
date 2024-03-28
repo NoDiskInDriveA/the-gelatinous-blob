@@ -82,5 +82,7 @@ class FunctionProcessor implements EntityProcessor
         } catch (IdentifierNotFound $e) {
             $this->logger?->debug('FQN {fqn} is not a function', ['fqn' => $e->getIdentifier()->getName()]);
         }
+
+        return null;
     }
 }
