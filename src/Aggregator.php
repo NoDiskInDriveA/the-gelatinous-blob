@@ -27,6 +27,7 @@ use Nodiskindrivea\Gelatinous\Processor\CompositeProcessor;
 use Nodiskindrivea\Gelatinous\Processor\ConstantProcessor;
 use Nodiskindrivea\Gelatinous\Processor\FunctionProcessor;
 use Nodiskindrivea\Gelatinous\Value\ResolverQueue;
+use PhpParser\Node;
 use Psr\Log\LoggerInterface;
 use Roave\BetterReflection\BetterReflection;
 use Roave\BetterReflection\Reflector\Exception\IdentifierNotFound;
@@ -40,6 +41,7 @@ class Aggregator
     }
 
     /**
+     * @return Node[]
      * @throws Exception
      */
     public function fromEntryPoint(string $entrypointFqn): array
