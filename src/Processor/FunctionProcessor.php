@@ -60,7 +60,6 @@ class FunctionProcessor implements EntityProcessor
         $traverser->addVisitor(new BracketNamespace($this->logger));
         $traverser->addVisitor(new FilterFunction([$fqn], $this->logger));
         $traverser->addVisitor(new RelocateEntrypointNamespaceToGlobal($this->entryPointFqn, $this->logger));
-        $traverser->addVisitor(new RemoveAttributes($this->logger));
         $traverser->addVisitor($recorder);
         $traverser->addVisitor(new RaiseUnsupported());
         $traverser->addVisitor(new RemoveUse());
