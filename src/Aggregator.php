@@ -41,7 +41,7 @@ class Aggregator
     }
 
     /**
-     * @return Node[]
+     * @return Node\Stmt[]
      * @throws Exception
      */
     public function fromEntryPoint(string $entrypointFqn): array

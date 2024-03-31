@@ -27,14 +27,14 @@ use function array_pop;
 use function explode;
 use function join;
 
-class RelocateEntrypointFunctionToGlobal extends NodeVisitorAbstract
+class RelocateEntrypointNamespaceToGlobal extends NodeVisitorAbstract
 {
     private string $namespace;
 
     public function __construct(private string $entrypointFqn, private readonly ?LoggerInterface $logger = null)
     {
         $parts = explode('\\', $this->entrypointFqn);
-        $name = array_pop($parts);
+        array_pop($parts);
         $this->namespace = join('\\', $parts);
     }
 

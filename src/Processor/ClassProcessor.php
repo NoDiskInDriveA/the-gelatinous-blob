@@ -26,6 +26,7 @@ use Nodiskindrivea\Gelatinous\Value\ProcessedEntity;
 use Nodiskindrivea\Gelatinous\Visitor\BracketNamespace;
 use Nodiskindrivea\Gelatinous\Visitor\RaiseUnsupported;
 use Nodiskindrivea\Gelatinous\Visitor\RecordingNameResolver;
+use Nodiskindrivea\Gelatinous\Visitor\RemoveAttributes;
 use Nodiskindrivea\Gelatinous\Visitor\RemoveComments;
 use Nodiskindrivea\Gelatinous\Visitor\RemoveDeclares;
 use Nodiskindrivea\Gelatinous\Visitor\RemoveUse;
@@ -56,6 +57,7 @@ class ClassProcessor implements EntityProcessor
         $traverser = new NodeTraverser();
         $traverser->addVisitor(new RemoveDeclares($this->logger));
         $traverser->addVisitor(new BracketNamespace($this->logger));
+        $traverser->addVisitor(new RemoveAttributes($this->logger));
         $traverser->addVisitor($recorder);
         $traverser->addVisitor(new RaiseUnsupported());
         $traverser->addVisitor(new RemoveUse());
