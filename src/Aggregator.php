@@ -62,6 +62,7 @@ class Aggregator
             try {
                 $processedEntity = $entitiesProcessor->processFqn($fqn);
                 $q->addUnprocessed(...$processedEntity->callTimeDependencies());
+                $q->addUnprocessed(...$processedEntity->compileTimeDependencies());
 
                 if ($q->hasUnprocessed(...$processedEntity->compileTimeDependencies())) {
                     $q->addUnprocessed($fqn);
