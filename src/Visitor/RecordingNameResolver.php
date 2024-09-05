@@ -35,7 +35,7 @@ class RecordingNameResolver extends NameResolver
         parent::__construct();
     }
 
-    public function beforeTraverse(array $nodes)
+    public function beforeTraverse(array $nodes): ?array
     {
         $this->classUsages = [];
         $this->nameUsages = [];
@@ -53,7 +53,7 @@ class RecordingNameResolver extends NameResolver
         return $this->nameUsages;
     }
 
-    protected function resolveClassName(Name $name)
+    protected function resolveClassName(Name $name): Name
     {
         $resolved = parent::resolveClassName($name);
         $this->classUsages[] = $resolved;
